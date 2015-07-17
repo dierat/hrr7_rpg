@@ -8,11 +8,19 @@
     <script src="bower_components/backbone/backbone.js"></script>
 
     <script src="game.js"></script>
+    <script src="data.js"></script>
     <script src="characters.js"></script>
     <script src="enemies"></script>
 
     <script>
+    $(function(){
+      var characters = new CharacterGroup(characterData);
+      var enemies = new EnemyGroup(enemyData);
+      var game = new GameModel({characters: characters, enemies: enemies});
+      var gameView = new GameView(model: game);
 
+      $('body').append(gameView.render());
+    });
     </script>
   </body>
 </html>
