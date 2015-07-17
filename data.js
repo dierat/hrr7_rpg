@@ -1,4 +1,4 @@
-var characters = [
+var characterData = [
   {
     name: 'player1',
     hp: 100,
@@ -21,7 +21,7 @@ var characters = [
   }
 ];
 
-var enemies = [
+var enemieData = [
   {
     name: 'enemy1',
     hp: 100,
