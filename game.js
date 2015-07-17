@@ -12,14 +12,14 @@ var GameView = Backbone.View.extend({
   className: "gameView",
 
   initialize: function(params){
-    this.characterGroupView = new CharacterGroupView({collection: this.model.get('characters')});
     this.enemyGroupView = new EnemyGroupView({collection: this.model.get('enemies')});
+    this.characterGroupView = new CharacterGroupView({collection: this.model.get('characters')});
   },
 
   render: function(){
     return this.$el.html([
-      this.characterGroupView.$el,
-      this.enemyGroupView.$el
+      this.enemyGroupView.$el,
+      this.characterGroupView.$el
     ]);
   }
 

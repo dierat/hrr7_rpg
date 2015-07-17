@@ -1,4 +1,5 @@
 var EnemyModel = Backbone.Model.extend({
+  // will control updating enemy information such as hp and mp
 
   initialize: function(){}
 
@@ -8,9 +9,13 @@ var EnemyModel = Backbone.Model.extend({
 
 var EnemyView = Backbone.View.extend({
 
+  className: "enemy",
+
   initialize: function(){},
 
-  render: function(){}
+  render: function(){
+    return this.$el;
+  }
 
 });
 
@@ -28,8 +33,22 @@ var EnemyGroup = Backbone.Collection.extend({
 
 var EnemyGroupView = Backbone.View.extend({
 
-  initialize: function(){},
+  className: "enemyGroup",
 
-  render: function(){}
+  initialize: function(){
+    this.render();
+  },
+
+  render: function(){
+    // to preserve event handlers on child nodes, we must call .detach() on them before overwriting with .html()
+    // see http://api.jquery.com/detach/
+    this.$el.children().detach();
+
+    this.$el.html('<h1>Enemies</h1>').append(
+      this.collection.map(function(enemy){
+        return new EnemyView({model: enemy}).render();
+      })
+    );
+  }
 
 });
