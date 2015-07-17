@@ -1,0 +1,10 @@
+body {
+  background-color: black;
+}
+
+.gameView {
+  background-color: white;
+  width: 800px;
+  height: 800px;
+  margin: 20px;
+}

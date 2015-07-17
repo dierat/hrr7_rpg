@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="index.css">
   </head>
   <body>
     <script src="bower_components/jquery/jquery.min.js"></script>
@@ -10,14 +11,16 @@
     <script src="game.js"></script>
     <script src="data.js"></script>
     <script src="characters.js"></script>
-    <script src="enemies"></script>
+    <script src="enemies.js"></script>
 
     <script>
     $(function(){
       var characters = new CharacterGroup(characterData);
+      console.log('characters = ', JSON.stringify(characters));
       var enemies = new EnemyGroup(enemyData);
+      console.log('enemies = ', JSON.stringify(enemies));
       var game = new GameModel({characters: characters, enemies: enemies});
-      var gameView = new GameView(model: game);
+      var gameView = new GameView({model: game});
 
       $('body').append(gameView.render());
     });
