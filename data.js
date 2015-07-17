@@ -21,7 +21,7 @@ var characterData = [
   }
 ];
 
-var enemieData = [
+var enemyData = [
   {
     name: 'enemy1',
     hp: 100,
